@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -74,9 +75,24 @@ WSGI_APPLICATION = 'python_web_demo.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    # 数据库配置修改成MySQL类型
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 数据库引擎，指明数据库类型
+        'ENGINE': 'django.db.backends.mysql',
+        # 数据库所在的服务器的ip地址（数据库安装在本机）
+        'HOST': '127.0.0.1',
+        # 数据库的端口号
+        'POST': '3306',
+        # 数据库用户名
+        'USER': 'root',
+        # 数据库的密码
+        'PASSWORD': 'root',
+        # 数据库名称
+        'NAME': 'python_web_demo'  # 与你在数据库创建的名称一致
     }
 }
 

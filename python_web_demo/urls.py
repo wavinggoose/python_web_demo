@@ -14,8 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from myapp import views
+from myapp.mysql import mysql
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')),
+    path('myapp/', include('myapp.urls')),
+    path('index/', views.index),
+    path('mysql/create/', mysql.add_user),
+    path('mysql/create2/', mysql.add_user_2),
+    path('mysql/update/', mysql.update_user),
+    path('mysql/query/', mysql.query_user),
+
 ]
